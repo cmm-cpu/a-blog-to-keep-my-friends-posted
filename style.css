@@ -136,7 +136,62 @@ body {
 /* ============================================================
    POST LIST  (index.html)
    ============================================================ */
-.post-list { margin-top: 36px; padding-bottom: 60px; }
+.post-list-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-list-container.collapsed {
+  max-height: calc(3 * 110px);
+}
+
+.post-list {
+  margin-top: 36px;
+  padding-bottom: 60px;
+}
+
+.post-list-footer {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.post-list-fade {
+  position: absolute;
+  inset: auto 0 0;
+  height: 140px;
+  background: linear-gradient(transparent, rgba(250, 248, 248, 0.95) 50%, var(--paper));
+  pointer-events: none;
+}
+
+.post-list-more {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(28, 27, 25, 0.15);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
+  cursor: pointer;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.post-list-more:hover {
+  transform: translateY(-2px);
+  background: #fff;
+}
+
+.post-list-container:not(.collapsed) .post-list-footer {
+  display: none;
+}
 
 .post-row {
   display: flex;
@@ -313,6 +368,113 @@ h1.post-title {
       margin: 40px 0;
     }
 
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 0;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(28, 27, 25, 0.08);
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 14px;
+    }
+
+    .video-gallery {
+      margin: 32px 0;
+    }
+
+    .video-gallery h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.35s ease;
+      gap: 0;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      padding: 0 12px;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      position: relative;
+      margin: 0 -12px;
+    }
+
+    .video-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid rgba(224, 221, 217, 0.9);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(28, 27, 25, 0.05);
+    }
+
+    .video-caption {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .carousel-button {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(28, 27, 25, 0.15);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .carousel-button:hover {
+      transform: translateY(-1px);
+      background: #f8f6f2;
+    }
+
+    .carousel-counter {
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    @media (max-width: 820px) {
+      .carousel-controls {
+        flex-direction: column;
+      }
+    }
+
 /* Post nav (prev / next) */
 .post-nav {
   max-width: var(--max-width);
@@ -475,6 +637,53 @@ mark {
   flex-direction: column;
   gap: 12px;
   min-width: 240px;
+}
+
+.updates-inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+}
+
+.btn-small {
+  padding: 10px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.updates-inline .updates-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.updates-inline .updates-form input {
+  flex: 1 1 180px;
+  min-width: 180px;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+@media (max-width: 720px) {
+  .updates-inline {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px 0;
+  }
+  .updates-inline .updates-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .btn {
