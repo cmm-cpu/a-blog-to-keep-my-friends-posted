@@ -132,6 +132,81 @@ body {
   border-radius: var(--radius);
 }
 
+.kicker-filter {
+  max-width: var(--max-width);
+  margin: 24px auto 0;
+  padding: 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.kicker-filter-label {
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.kicker-filter-select {
+  min-width: 140px;
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-family: var(--sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  text-align: center;
+  text-align-last: center;
+  appearance: none;
+}
+.kicker-filter-select:hover,
+.kicker-filter-select:focus {
+  outline: none;
+  border-color: #223c32;
+  background: #223c32;
+}
+
+@media (max-width: 720px) {
+  .kicker-filter {
+    padding: 0 20px;
+  }
+  .kicker-filter-select {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   POST LIST  (index.html)
+   ============================================================ */
+.kicker-filter-btn {
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 10px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+.kicker-filter-btn:hover {
+  background: #fff;
+}
+.kicker-filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .kicker-filters {
+    padding: 0 20px;
+  }
+}
 
 /* ============================================================
    POST LIST  (index.html)
